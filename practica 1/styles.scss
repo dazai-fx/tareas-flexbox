@@ -1,0 +1,124 @@
+@import "mixins";
+
+@include reset;
+
+body {
+  font-family: "Lato", Helvetica, Arial, Lucida, sans-serif;
+  /* fondo de respaldo para navegadores antiguos */
+  background-color: rgb(255, 94, 98);
+  /* fondo para navegdores modernos */
+  background: linear-gradient(
+    86deg,
+    rgba(255, 94, 98, 1) 30%,
+    rgba(255, 153, 102, 1) 70%
+  );
+  color: #fff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+  @include dispositivo(768px) {
+    padding: 2rem;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #03a9f4;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  @include dispositivo(768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    margin: 1rem 0;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        margin: 0 0.2rem;
+
+        a {
+          color: #fff;
+          &:hover {
+            background-color: #fff;
+            color: #03a9f4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 1rem;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    // si no indicamos un align-items flex-start el main crece hasta el alto del aside y el contenido del main se centra verticalmente, con flex-start el main solo crece hasta el alto de su contenido y se alinea al inicio del contenedor
+    align-items: flex-start;
+  }
+
+  main {
+    display: flex;
+    @include dispositivo(768px) {
+      flex-basis: 60%;
+      align-items: center;
+      margin-right: 1rem;
+    }
+    article {
+      flex-grow: 1;
+      padding: 1rem;
+      background-color: #68066d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    article:first-child {
+      background-color: #c73218;
+    }
+    article:last-child {
+      background-color: #2b03f4;
+    }
+  }
+
+  aside {
+    flex-grow: 1;
+    padding: 1rem;
+    background-color: #03a9f4;
+    h2 {
+      margin-bottom: 1rem;
+    }
+    ul {
+      // ponemos los estilos de la lista y los enlaces dentro de la lista por defecto por el ejemplo
+      list-style: disc;
+      color: black;
+      margin-left: 1.5rem;
+      a {
+        color: blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
