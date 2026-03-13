@@ -20,22 +20,6 @@ body {
   }
 }
 
-.mainYaside {
-  display: flex;
-  flex-direction: column-reverse;
-  aside {
-    display: flex;
-    flex-direction: column;
-  }
-  main {
-    article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-}
-
 header {
   background-image: $bg_header;
   background-repeat: no-repeat;
@@ -56,7 +40,7 @@ header {
   }
   h1 {
     font-size: $tamano_h1;
-    // flex-grow: 1;
+    text-align: center;
   }
 }
 
@@ -73,30 +57,47 @@ nav {
         display: none;
       }
       li:hover ul {
-        flex-grow: 1;
         // preguntar si se puede hacer así o si tiene que ser con Flexbox
         display: block;
         position: absolute;
         width: 100%;
         left: 0;
-        background-color: black;
+        background-color: red;
+        z-index: 5;
       }
     }
     li {
       position: relative;
-      a {
-        display: flex;
-        flex-grow: 1;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        color: $color_header;
-        // &:hover {
-        //   // realmente no se pide este efecto pero así veo que realmente el a ocupa todo el ancho disponible
-        //   // color: black;
-        //   // background-color: $color_header;
-        // }
+    }
+  }
+}
+
+.mainYaside {
+  display: flex;
+  flex-direction: column-reverse;
+  @include escritorio {
+    flex-direction: row;
+    // background-color: red;
+  }
+  aside {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    article {
+      @include tablet {
+        flex: 0 1 calc(100% / 2 - 1rem / 2);
       }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
@@ -115,7 +116,10 @@ footer {
     flex-direction: column;
     @include tablet {
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-around;
+    }
+    @include escritorio {
+      justify-content: flex-start;
     }
     .widget {
       display: flex;
@@ -129,4 +133,8 @@ footer {
       }
     }
   }
+}
+
+a {
+  font-size: 2rem;
 }

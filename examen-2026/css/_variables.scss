@@ -19,8 +19,8 @@ $color_footer: #ffffff;
 
 /* imagenes */
 // mirar problema con las rutas de las imagenes, no se muestran al abrir el html pero si abro un servidor local si se muestran
-$bg_header: url(/img/fondo.jpg);
-$bg_image_footer: url(/img/contacto.jpg);
+$bg_header: url(../../img/fondo.jpg);
+$bg_image_footer: url(../../img/contacto.jpg);
 
 /* media queries */
 $escritorio: 1024px;
