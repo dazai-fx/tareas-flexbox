@@ -1,0 +1,132 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+@include reset;
+
+body {
+  font-family: $fuente;
+  h1 {
+    font-size: $tamano_h1;
+  }
+  p {
+    font-size: $tamano_p;
+  }
+}
+
+.contenedor {
+  @include escritorio {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+.mainYaside {
+  display: flex;
+  flex-direction: column-reverse;
+  aside {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+header {
+  background-image: $bg_header;
+  background-repeat: no-repeat;
+  min-height: 24rem;
+  background-size: cover;
+  background-position: center center;
+  color: $color_header;
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tablet {
+      align-items: flex-start;
+    }
+    @include escritorio {
+      align-items: flex-end;
+    }
+  }
+  h1 {
+    font-size: $tamano_h1;
+    // flex-grow: 1;
+  }
+}
+
+nav {
+  background-color: black;
+  .menu {
+    display: flex;
+    flex-direction: column;
+    @include escritorio {
+      flex-direction: row;
+      justify-content: space-between;
+
+      li ul {
+        display: none;
+      }
+      li:hover ul {
+        flex-grow: 1;
+        // preguntar si se puede hacer así o si tiene que ser con Flexbox
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        background-color: black;
+      }
+    }
+    li {
+      position: relative;
+      a {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        color: $color_header;
+        // &:hover {
+        //   // realmente no se pide este efecto pero así veo que realmente el a ocupa todo el ancho disponible
+        //   // color: black;
+        //   // background-color: $color_header;
+        // }
+      }
+    }
+  }
+}
+
+footer {
+  background-image: $bg_image_footer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: 3rem;
+  min-height: 20rem;
+  padding: 2rem 0;
+  color: $color_footer;
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .widget {
+      display: flex;
+      flex-direction: column;
+      * {
+        margin-bottom: 1rem;
+      }
+      @include tablet {
+        // flex-grow: 1;
+        flex-basis: 25%;
+      }
+    }
+  }
+}

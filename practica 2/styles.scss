@@ -1,0 +1,173 @@
+@import "mixins";
+
+@include reset;
+
+body {
+  font-family: "Lato", Helvetica, Arial, Lucida, sans-serif;
+  /* fondo de respaldo para navegadores antiguos */
+  background-color: rgb(255, 94, 98);
+  /* fondo para navegdores modernos */
+  background: linear-gradient(
+    86deg,
+    rgba(255, 94, 98, 1) 30%,
+    rgba(255, 153, 102, 1) 70%
+  );
+}
+
+h2 {
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+  @include dispositivo(1000px) {
+    padding: 2rem;
+  }
+}
+
+.menu {
+  background-color: rgb(35, 62, 182);
+  margin-bottom: 1rem;
+  ul li a,
+  ul li {
+    color: #fff;
+  }
+}
+
+.menu-sencillo {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  // valor por defecto stretch, estira los items para ocupar todo el alto del contenedor
+  // align-items: center;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  li {
+    @include dispositivo(768px) {
+      flex-grow: 1;
+    }
+    // flex-grow: 1;
+    a {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background-color: rgb(2, 16, 78);
+      }
+    }
+  }
+}
+
+.menu-con-iconos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @include dispositivo(1200px) {
+    padding: 0 1rem;
+  }
+  li {
+    // flex-grow: 1;
+    display: flex;
+    padding: 1rem;
+    @include dispositivo(768px) {
+      flex-basis: 50%;
+      // con 50% de ancho, cada item ocupa la mitad del contenedor es decir 2 items por fila
+    }
+    @include dispositivo(1000px) {
+      flex-basis: 0%;
+      flex-grow: 1;
+    }
+    i {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.menu-dropdown {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  position: relative;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    // justify-content: center;
+  }
+  li a {
+    flex-grow: 1;
+    display: flex;
+    padding: 1rem;
+  }
+  li {
+    padding: 1rem;
+    @include dispositivo(768px) {
+      flex-grow: 1;
+      padding: 0;
+      position: relative;
+    }
+    &:hover,
+    .menu-link:hover {
+      background-color: rgb(2, 16, 78);
+    }
+    @include dispositivo(768px) {
+      &:hover .submenu {
+        display: block;
+      }
+    }
+  }
+  .submenu {
+    @include dispositivo(768px) {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgb(35, 62, 182);
+      width: 100%;
+    }
+
+    li a:hover {
+      background-color: rgb(255, 94, 98);
+    }
+    @include dispositivo(768px) {
+      li a {
+        background-color: rgb(255, 94, 98);
+        &:hover {
+          background-color: rgb(2, 16, 78);
+        }
+      }
+    }
+  }
+}
+
+.menu-redes-sociales {
+  display: flex;
+  padding: 1rem;
+  justify-content: right;
+  a {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+}
+
+// al tener ya definido el estilo para el menu dropdown, podemos reutilizarlo y agregarle estilos adicionales para el caso del menu con redes sociales
+.menu-dropdown-y-redes-sociales {
+  display: flex;
+  flex-direction: column-reverse;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
