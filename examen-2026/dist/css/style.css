@@ -41,39 +41,8 @@ body p {
   }
 }
 
-.mainYaside {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-}
-.mainYaside aside {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.mainYaside main article {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 header {
-  background-image: url(/img/fondo.jpg);
+  background-image: url(../../img/fondo.jpg);
   background-repeat: no-repeat;
   min-height: 24rem;
   background-size: cover;
@@ -108,6 +77,7 @@ header .contenido {
 }
 header h1 {
   font-size: 2.8rem;
+  text-align: center;
 }
 
 nav {
@@ -136,38 +106,88 @@ nav .menu {
     display: none;
   }
   nav .menu li:hover ul {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
     display: block;
     position: absolute;
     width: 100%;
     left: 0;
-    background-color: black;
+    background-color: red;
+    z-index: 5;
   }
 }
 nav .menu li {
   position: relative;
 }
-nav .menu li a {
+
+.mainYaside {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+@media screen and (min-width: 1024px) {
+  .mainYaside {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.mainYaside aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mainYaside main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (min-width: 762px) {
+  .mainYaside main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+@media screen and (min-width: 762px) {
+  .mainYaside main article {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 calc(50% - 0.5rem);
+            flex: 0 1 calc(50% - 0.5rem);
+  }
+}
+.mainYaside main article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1rem;
-  color: #ffffff;
 }
 
 footer {
-  background-image: url(/img/contacto.jpg);
+  background-image: url(../../img/contacto.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -191,9 +211,15 @@ footer .contenedor {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+@media screen and (min-width: 1024px) {
+  footer .contenedor {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 footer .contenedor .widget {
@@ -213,4 +239,8 @@ footer .contenedor .widget * {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
   }
+}
+
+a {
+  font-size: 2rem;
 }/*# sourceMappingURL=style.css.map */
