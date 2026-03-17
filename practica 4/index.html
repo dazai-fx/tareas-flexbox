@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Práctica 4: FLEX</title>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <ul class="menu-contenido container">
+          <li>
+            <a href="#"><img src="img/logo.jpg" alt="logo" /></a>
+          </li>
+          <li>
+            <img src="img/cart.png" alt="carrito" />
+            <div class="carrito">
+              <div class="col">
+                <p>Imagen</p>
+                <img src="img/curso1.jpg" alt="curso 1" />
+              </div>
+              <div class="col">
+                <p>Nombre</p>
+                <p>CSS Grid y Flexbox Construye + 10 Proyectos</p>
+              </div>
+              <div class="col">
+                <p>Precio</p>
+                <p>$15</p>
+              </div>
+              <div class="col">
+                <button>Vacíar Carrito</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <div class="hero-contenido container">
+          <h2>Aprende algo nuevo</h2>
+          <p>Todos los cursos a $15</p>
+          <div class="search">
+            <input type="text" placeholder="¿Qué te gustaría aprender?" />
+            <img src="img/lupa.png" alt="buscar" />
+          </div>
+        </div>
+      </div>
+      <div class="iconos">
+        <ul class="iconos-contenido container">
+          <li>
+            <i class="fa-regular fa-lightbulb"></i>
+            <section>
+              <p>20.000 Cursos en línea</p>
+              <p>Explora los temas más recientes</p>
+            </section>
+          </li>
+          <li>
+            <i class="fa-solid fa-bullseye"></i>
+            <section>
+              <p>Instrucciones de Expertos</p>
+              <p>Aprende con distintos estilos</p>
+            </section>
+          </li>
+          <li>
+            <i class="fa-regular fa-clock"></i>
+            <section>
+              <p>Acceso de por vida</p>
+              <p>Aprende a tu ritmo</p>
+            </section>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="container">
+      <h2>Cursos en línea</h2>
+      <section class="cursos">
+        <article class="curso">
+          <img src="img/curso1.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              HTML5, CSS3,
+              <br />
+              JavaScript para
+              <br />
+              principiantes
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso2.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso3.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso4.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso5.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso1.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso1.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+        <article class="curso">
+          <img src="img/curso1.jpg" alt="curso1" />
+          <div class="curso-contenido">
+            <h3>
+              Curso de Comida<br />
+              Vegetariana
+            </h3>
+            <p>Juan Pedro</p>
+            <img src="img/estrellas.png" alt="estrellas" class="stars" />
+            <p class="precios">
+              <span class="precio-anual">$200</span
+              ><span class="precio-mensual">$15</span>
+            </p>
+            <button>Agregar al carrito</button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-contenido container">
+        <div class="col">
+          <p><a href="#">Para tu negocio</a></p>
+          <p><a href="#">Conviertete en instructor</a></p>
+          <p><a href="#">Aplicaciones Móviles</a></p>
+          <p><a href="#">Soporte</a></p>
+          <p><a href="#">Temas</a></p>
+        </div>
+        <div class="col">
+          <p><a href="#">Quienes somos</a></p>
+          <p><a href="#">Empleo</a></p>
+          <p><a href="#">Blog</a></p>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/fd48554932.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

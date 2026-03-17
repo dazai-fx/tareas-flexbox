@@ -1,0 +1,54 @@
+/*MIXIN PARA ADAPTAR A DISPOSITIVOS*/
+@mixin dispositivo($ancho-dispositivo) {
+  @media screen and (min-width: $ancho-dispositivo) {
+    @content;
+  }
+}
+// MIXIN PARA RESETEAR LOS ESTILOS POR DEFECTO DE LOS NAVEGADORES
+@mixin reset() {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+// MIXIN PARA BOTONES
+
+@mixin boton($color-fondo, $color-texto) {
+  background-color: $color-fondo;
+  color: $color-texto;
+  font-weight: bold;
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  border: none;
+  margin-bottom: 1rem;
+  &:hover {
+    // background-color: $color-texto;
+    // en este caso voy a utilizar otro color porque el fondo de la tarjeta es blanco
+    background-color: black;
+    color: $color-fondo;
+  }
+}

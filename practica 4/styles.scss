@@ -1,0 +1,269 @@
+@import "mixins";
+
+@include reset;
+
+body {
+  font-family: "Lato", Helvetica, Arial, Lucida, sans-serif;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.menu-contenido {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+  @include dispositivo(768px) {
+    padding: 0;
+  }
+  .carrito {
+    display: none;
+    // aunque no estemos aplicando display flex las propiedades de flex como wrap se guardan
+    flex-wrap: wrap;
+    position: absolute;
+    padding: 1rem;
+    top: 100%;
+    right: 0;
+    width: 429px;
+    background-color: #fff;
+    .col {
+      // background-color: purple;
+      flex-basis: 33%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5rem;
+      align-items: center;
+      p {
+        font-weight: bold;
+      }
+      p:last-child {
+        margin-top: 1rem;
+        font-weight: lighter;
+      }
+    }
+    .col:last-child {
+      flex-basis: 100%;
+      align-items: stretch;
+      button {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        border: none;
+        background-color: purple;
+        color: #fff;
+        padding: 0.5rem;
+      }
+    }
+  }
+  li:last-child {
+    position: relative;
+    &:hover {
+      .carrito {
+        display: flex;
+      }
+    }
+  }
+}
+
+.hero {
+  // preguntar al profe si esta bien
+  height: 400px;
+  background-image: url("../../img/hero.jpg");
+  // background-color: red;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // background-size: 130%;
+  .hero-contenido {
+    padding-top: 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    @include dispositivo(768px) {
+      padding: 0;
+    }
+    h2 {
+      font-weight: normal;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .search {
+      position: relative;
+      display: flex;
+      width: 100%;
+      @include dispositivo(768px) {
+        width: 50%;
+      }
+      input {
+        flex-basis: 100%;
+        font-size: 1.3rem;
+        padding: 0.5rem 2.5rem 0.5rem 0.5rem; // espacio para la lupa
+      }
+
+      img {
+        position: absolute;
+        right: 10px;
+        top: 25%;
+        pointer-events: none;
+        // background-color: #a5a3a3;
+      }
+    }
+  }
+}
+
+.iconos {
+  // fondo de respaldo por si el navegador no soportase linear-gradient
+  background-color: #8a1f5a;
+  padding: 2rem;
+  color: #fff;
+  background: linear-gradient(to right, #8a1f5a, #ff3b3b);
+  .iconos-contenido {
+    display: flex;
+    flex-direction: column;
+    @include dispositivo(768px) {
+      flex-direction: row;
+      justify-content: stretch;
+    }
+    // background-color: red;
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      @include dispositivo(768px) {
+        flex: 1; // flex-grow 1 flex-shrink 1 flex-basis auto para que los hijos crezcan en base al padre
+      }
+      i {
+        font-size: 3rem;
+        flex-basis: 35%;
+        @include dispositivo(768px) {
+          flex-basis: 25%;
+          // reducimos el flex-basis para que la separación con los section sea menor
+        }
+      }
+      section {
+        text-align: center;
+        // align-self: center;
+        // preguntar al profe como centrar solo los hijos q estan en la 2º columna y que los de la izquierda se pegen a la izquierda
+        @include dispositivo(768px) {
+          flex-grow: 1;
+          // background-color: red;
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding: 2rem;
+  h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  .cursos {
+    display: flex;
+    flex-direction: column;
+    @include dispositivo(280px) {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .curso {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      @include dispositivo(280px) {
+        flex: 0 1 calc(100% / 2 - 1rem / 2);
+        // background-color: blue;
+      }
+      @include dispositivo(480px) {
+        flex: 0 1 calc(100% / 3 - 2rem / 3);
+        // background-color: red;
+      }
+      @include dispositivo(768px) {
+        flex: 0 1 calc(100% / 4 - 3rem / 4);
+        // background-color: orange;
+      }
+      .curso-contenido {
+        padding: 1rem;
+
+        // align-items: flex-start;
+        border: 1px solid #a5a3a3;
+        h3 {
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+        }
+        p {
+          margin-bottom: 1rem;
+        }
+        img {
+          margin-bottom: 1rem;
+          height: 10px;
+          flex-grow: 0;
+          // tambien necesitamos un margen en la imagen de arriba y abajo
+        }
+        .precios {
+          display: flex;
+          justify-content: space-between;
+          // background-color: red;
+          span:first-child {
+            color: #a5a3a3;
+          }
+          span:last-child {
+            font-size: 2rem;
+            font-weight: bolder;
+            text-decoration: line-through;
+          }
+        }
+        button {
+          flex-grow: 1;
+          background-color: rgb(0, 128, 255);
+          border: none;
+          color: #fff;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: rgb(23, 21, 21);
+  .footer-contenido {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    // background-color: red;
+    @include dispositivo(768px) {
+      flex-basis: 50%;
+      // background-color: #8a1f5a;
+    }
+    p {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

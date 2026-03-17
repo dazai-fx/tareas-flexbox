@@ -1,0 +1,75 @@
+@import "mixins";
+
+@include reset;
+
+body {
+  background-color: #a5a3a3;
+  font-family: "Lato", Helvetica, Arial, Lucida, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  // revisar si es correcto usar padding aquí o es mejor usar un margin en el h1
+  padding-top: 1rem;
+}
+
+.entradas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include dispositivo(768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // align-items solo funciona si hay wrap, por eso se pone en el dispositivo de 768px
+    align-items: flex-start;
+  }
+}
+
+.entrada {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  @include dispositivo(768px) {
+    flex: 0 1 calc(100% / 2 - 32px / 2);
+  }
+  @include dispositivo(1000px) {
+    flex: 0 1 calc(100% / 3 - 48px / 3);
+  }
+  img {
+    margin-bottom: 1rem;
+    // revisar
+    // flex: 0 1 calc(100% / 3 - 48px / 3); El navegador no puede pintar 0.666px, así que redondea.  Ese pequeño ajuste provoca que la imagen con max-width:100% no rellene exactamente el ancho, y aparece ese hueco de 1px.
+    // es limitación del renderizado del navegador. por eso max-width 100% no funciona bien y hay veces que queda un margen de 1px a la derecha de la imagen. para solucionarlo, se puede poner width: 100% en lugar de max-width: 100%, así la imagen siempre rellenará el ancho disponible, aunque eso signifique que se distorsione un poco la imagen.
+    // en la practica del año pasado tenia el width 100% y fue revisada por el profesor.
+    width: 100%;
+  }
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 1rem;
+    span {
+      color: rgb(240, 32, 108);
+    }
+  }
+  p:last-child {
+    margin-bottom: 2rem;
+  }
+  button {
+    // revisar si el mixin del botón esta bien hecho o es correcto hacer botones de esta forma
+    @include boton(rgb(41, 164, 236), #fff);
+  }
+}
