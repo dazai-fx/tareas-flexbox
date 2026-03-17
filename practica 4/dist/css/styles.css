@@ -313,6 +313,16 @@ main .cursos .curso {
 }
 main .cursos .curso .curso-contenido {
   padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   border: 1px solid #a5a3a3;
 }
 main .cursos .curso .curso-contenido h3 {
@@ -328,6 +338,8 @@ main .cursos .curso .curso-contenido img {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 main .cursos .curso .curso-contenido .precios {
   display: -webkit-box;
